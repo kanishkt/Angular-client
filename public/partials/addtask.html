@@ -1,0 +1,28 @@
+<form data-abide>
+  <h3>Add Tasks</h3>
+  <div class="name-field">
+    <label>Your name <small>required</small>
+      <input type="text" required pattern="[a-zA-Z]+">
+    </label>
+    <small class="error">Name is required and must be a string.</small>
+  </div>
+  <div class="alpha_numeric-field">
+    <label>Description <small>required</small>
+      <textarea type="text" required></textarea>
+    </label>
+    <small class="error">A Description address is required.</small>
+  </div>
+  <div class="date-field">
+    <label>Deadline
+      <datepicker>
+        <input ng-model="date" type="text">
+      </datepicker>
+    </label>
+  </div>
+  <div class="name-field">
+    <label> Assigned User
+      <select>
+          <option ng-repeat ="user in users">{{user.name}}</option>
+    </select>
+  <button type="submit">Submit</button>
+</form>
