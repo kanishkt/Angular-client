@@ -40,7 +40,15 @@ angular.module('demoServices', [])
             getOne : function(params){
                 var baseUrl = $window.sessionStorage.baseurl;
                 return $http.get(baseUrl+'/tasks/'+params);
-            }
+            },
+            delete : function(id){
+            var baseUrl = $window.sessionStorage.baseurl;
+            return $http.delete(baseUrl+"/tasks/"+id);
+            },
+            insert : function (newData) {
+            var baseUrl = $window.sessionStorage.baseurl;
+            return $http.post(baseUrl+'/tasks',newData);
+        }
         }
     })
     ;

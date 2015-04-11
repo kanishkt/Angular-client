@@ -13,7 +13,7 @@
              <a href="" class="button small">Next</button></a>
         </div>    
         <div class="large-2 small-2 columns">
-             <a href="#addtask" class="button small">Add Tasks</button></a>
+             <a href="#addtask" class="button small" style="background-color:green;">Add Tasks</button></a>
         </div>
         </div>
         <div class="row">
@@ -39,7 +39,7 @@
             <tr>
                  <th>Name</th>
                 <th>ID</th>
-                <th>Assigned Task</th>
+                <th>Assigned User</th>
                 <th></th>
             </tr>
         </thead>
@@ -49,7 +49,7 @@
                 <td>{{u._id}}</td>
                 <td>{{u.assignedUserName}}</th>
                 <td>
-                     <button name="delete">Delete</button>
+                     <button name="delete" style="background-color:red;" ng-click="deleteUser(u._id)">Delete</button>
                  </td>
             </tr>
         </tbody>

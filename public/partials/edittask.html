@@ -1,0 +1,55 @@
+<div ng-controller='EditTaskController'>
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+	<h3>Edit Tasks</h3>
+</div>
+</div>
+	<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+ <label>Name <span style="color:#FF0000;">*</span>
+ <input ng-model="name" type="text" />
+ </label>
+ </div>
+ </div>
+ <div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+ <label>Description
+ <input ng-model="ds" type="text" />
+ </label>
+ </div>
+ </div>
+ <div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+ <label>Deadline <span style="color:#FF0000;">*</span>
+ <datepicker>
+ <input ng-model = "date" type="text" />
+ </datepicker> 
+ </label>
+ </div>
+ </div>
+ <div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+ <label>User
+ <select ng-model="suser" ng-options="user.name for user in users" >
+ <option value="unassigned">Unassigned</option> </select>
+ </label>
+ </div>
+ </div>
+ <div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+ <label>Completed:
+ <form >
+ <input type="radio" name="opt" ng-model="complete" value="true">true</input>
+ <input type="radio" name="opt" ng-model="complete" value="false" checked>false</input>
+ </form>
+ </label>
+ </div>
+ </div>
+ <div class="row">
+ <div class="small-12 medium-6 large-6 columns text-center">
+ <button ng-click="edittask()">Submit!</button>
+ <div class="text-center" style="margin-top:-15px;margin-bottom:18px;color:white;background-color:red;">{{fin1}}</div>
+ <div class="text-center" style="margin-top:-15px;margin-bottom:18px;color:white;background-color:green;">{{fin2}}</div>
+ </div>
+ </div>
+</div>

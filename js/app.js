@@ -1,6 +1,6 @@
 // var demoApp = angular.module('demoApp', ['demoControllers']);
 
-var demoApp = angular.module('demoApp', ['ngRoute', 'demoControllers', 'demoServices']);
+var demoApp = angular.module('demoApp', ['ngRoute', 'demoControllers', 'demoServices', '720kb.datepicker']);
 
 demoApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
@@ -31,6 +31,10 @@ demoApp.config(['$routeProvider', function($routeProvider) {
   when('/addtask', {
     templateUrl: 'partials/addtask.html',
     controller: 'AddTaskController'
+  }).
+  when('/edittask', {
+    templateUrl: 'partials/edittask.html',
+    controller: 'EditTaskController'
   }).
   otherwise({
     redirectTo: '/settings'

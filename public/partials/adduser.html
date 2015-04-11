@@ -1,16 +1,33 @@
 <form data-abide>
+  <div class="row">
+ <div class="small-12 medium-6 large-6 columns">
   <h3>Add User</h3>
+</div>
+</div>
+  <div class="row">
+ <div class="small-12 medium-6 large-6 columns">
   <div class="name-field">
-    <label>Your name <small>required</small>
+    <label>Your name <span style="color:#FF0000;">*</span>
       <input type="text" ng-model="newname" required pattern="[a-zA-Z]+">
     </label>
     <small class="error">Name is required and must be a string.</small>
   </div>
+</div>
+</div>
+
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
   <div class="email-field">
-    <label>Email <small>required</small>
+    <label>Email <span style="color:#FF0000;">*</span>
       <input type="email" ng-model="newemail" required>
     </label>
     <small class="error">An email address is required.</small>
   </div>
-  <button type="submit" ng-click="changename()">Submit</button>
+</div>
+</div>
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+  <button type="submit" ng-click="changename()" style="background-color:green;">Submit</button>
+</div>
+</div>
 </form>

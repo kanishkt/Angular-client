@@ -1,28 +1,56 @@
 <form data-abide>
-  <h3>Add Tasks</h3>
+  <div class="row">
+  <div class="small-12 medium-6 large-3 columns">
+    <h3>Add Tasks</h3>
+  </div>
+<div class="small-12 medium-6 large-3 columns">
+<a href="#edittask" class="button small" style="background-color:green">Edit Tasks</button></a>
+  </div>
+</div>
+  </div>
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
   <div class="name-field">
-    <label>Your name <small>required</small>
-      <input type="text" required pattern="[a-zA-Z]+">
+    <label>Task Name<span style="color:#FF0000;">*</span>
+      <input type="text" ng-model="newname" required pattern="[a-zA-Z]+">
     </label>
     <small class="error">Name is required and must be a string.</small>
   </div>
+</div>
+</div>
+
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
   <div class="alpha_numeric-field">
-    <label>Description <small>required</small>
-      <textarea type="text" required></textarea>
+    <label>Description <span style="color:#FF0000;">*</span>
+      <textarea type="text" ng-model="newdes" required></textarea>
     </label>
     <small class="error">A Description address is required.</small>
   </div>
+</div>
+</div>
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
   <div class="date-field">
     <label>Deadline
-      <datepicker>
-        <input ng-model="date" type="text">
-      </datepicker>
+        <input ng-model="newdead" type="date">
     </label>
   </div>
+</div>
+</div>
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
   <div class="name-field">
     <label> Assigned User
-      <select>
+      <select ng-model="assigneduser">
           <option ng-repeat ="user in users">{{user.name}}</option>
     </select>
-  <button type="submit">Submit</button>
+  </div>
+</div>
+</div>
+<div class="row">
+ <div class="small-12 medium-6 large-6 columns">
+  <button type="submit" ng-click="changetask()">Submit</button>
+</div>
+</div>
 </form>
