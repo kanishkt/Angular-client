@@ -9,12 +9,12 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody ng-repeat="u in users">
+        <tbody ng-repeat="use in users">
             <tr>
-                <td><a href="#detailuser/{{u._id}}">{{u.name}}</a></td>
-                <td>{{u._id}}</td>
+                <td><a href="#detailuser/{{use._id}}">{{use.name}}</a></td>
+                <td>{{use._id}}</td>
                 <td>
-                     <button ng-click="deleteUser(u._id)" style="background-color:red;" name="delete">Delete</button>
+                     <button ng-click="deleteUser(use)" style="background-color:red;" name="delete">Delete</button>
                  </td>
             </tr>
         </tbody>

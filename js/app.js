@@ -16,11 +16,11 @@ demoApp.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/taskview.html',
     controller: 'TaskController'
   }).
-  when('/detailuser/:ID', {
+  when('/detailuser/:id', {
     templateUrl: 'partials/detailuser.html',
     controller: 'DetailUserController'
   }).
-   when('/detailtask/:ID', {
+   when('/detailtask/:id', {
     templateUrl: 'partials/detailtask.html',
     controller: 'DetailTaskController'
   }).
@@ -32,7 +32,7 @@ demoApp.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/addtask.html',
     controller: 'AddTaskController'
   }).
-  when('/edittask', {
+  when('/edittask/:id', {
     templateUrl: 'partials/edittask.html',
     controller: 'EditTaskController'
   }).

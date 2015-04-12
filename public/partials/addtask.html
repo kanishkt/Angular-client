@@ -3,16 +3,13 @@
   <div class="small-12 medium-6 large-3 columns">
     <h3>Add Tasks</h3>
   </div>
-<div class="small-12 medium-6 large-3 columns">
-<a href="#edittask" class="button small" style="background-color:green">Edit Tasks</button></a>
-  </div>
 </div>
   </div>
 <div class="row">
  <div class="small-12 medium-6 large-6 columns">
   <div class="name-field">
     <label>Task Name<span style="color:#FF0000;">*</span>
-      <input type="text" ng-model="newname" required pattern="[a-zA-Z]+">
+      <input type="text" ng-model="newname" required>
     </label>
     <small class="error">Name is required and must be a string.</small>
   </div>
@@ -22,8 +19,8 @@
 <div class="row">
  <div class="small-12 medium-6 large-6 columns">
   <div class="alpha_numeric-field">
-    <label>Description <span style="color:#FF0000;">*</span>
-      <textarea type="text" ng-model="newdes" required></textarea>
+    <label>Description
+      <textarea type="text" ng-model="newdes"></textarea>
     </label>
     <small class="error">A Description address is required.</small>
   </div>
@@ -32,9 +29,10 @@
 <div class="row">
  <div class="small-12 medium-6 large-6 columns">
   <div class="date-field">
-    <label>Deadline
-        <input ng-model="newdead" type="date">
-    </label>
+    <label>Deadline <span style="color:#FF0000;">*</span>
+      <datepicker>
+                    <input ng-model="newdead" type="text" />
+      </datepicker>
   </div>
 </div>
 </div>
@@ -42,15 +40,19 @@
  <div class="small-12 medium-6 large-6 columns">
   <div class="name-field">
     <label> Assigned User
-      <select ng-model="assigneduser">
-          <option ng-repeat ="user in users">{{user.name}}</option>
-    </select>
+       <select ng-model="assigneduser" ng-options="user.name for user in users"> </select>
   </div>
 </div>
 </div>
 <div class="row">
  <div class="small-12 medium-6 large-6 columns">
   <button type="submit" ng-click="changetask()">Submit</button>
+   <div ng-if="checker==1">
+  <div class="text-center" style="margin-top:-15px;margin-bottom:18px;color:white;background-color:green;">{{mess}}</div>
+</div>
+<div ng-if="checker==2">
+   <div class="text-center" style="margin-top:-15px;margin-bottom:18px;color:white;background-color:red;">{{mess}}</div>
+</div>
 </div>
 </div>
 </form>

@@ -1,57 +1,65 @@
-<div class="list" ng-controller='TaskController'>
-    <div class="row">
+<div class="list" ng-controller='TaskController'>  
+  <div class="row">
         <div class="large-4 small-4 columns">
-            <label>Filter Tasks</label>
-            <input type="radio" name="status" value="All" id="All"><label for="All">All</label></input>
-            <input type="radio" name="status" value="Completed" id="Completed"><label for="Completed">Completed</label></input>
-            <input type="radio" name="status" value="Pending" id="Pending" checked="checked"><label for="Pending">Pending</label></input>
-        </div>
-        <div class="large-2 small-2 columns">
-             <a href="" class="button small">Previous</button></a>
-        </div>
-        <div class="large-2 small-2 columns">
-             <a href="" class="button small">Next</button></a>
-        </div>    
-        <div class="large-2 small-2 columns">
-             <a href="#addtask" class="button small" style="background-color:green;">Add Tasks</button></a>
-        </div>
-        </div>
-        <div class="row">
-        <div class="large-2 small-2 columns">
-         <label>filter By
-            <select>
-                <option value="name">name</option>
-                <option value="username">username</option>
-                <option value="dateCreated">dateCreated</option>
-                <option value="deadline">deadline</option>
-            </select>
-      </label>
+           <label>Filter Tasks</label>
+          <input ng-model="all" ng-click="clickevent()" type="radio" name="count" value="all"><label for="All">All</label></input>
+          <input ng-model="all" type="radio" ng-click="clickevent()" name="count" value="completed"><label for="Completed">Completed</label></input>
+          <input ng-model="all" type="radio" ng-click="clickevent()" name="count" value="pending" checked><label for="Pending">Pending</label></input>
       </div>
-      <div class="large-7 small-2 columns">
-      <label>In Order</label>
-            <input type="radio" name="order" value="ascending" id="ascending"><label for="ascending">ascending</label></input>
-            <input type="radio" name="order" value="descending" id="descending"><label for="descending">descending</label></input>
+      <div class="large-3 columns">
+        <button ng-click="prev()">Previous</button>
       </div>
-      </div>    
-
-    <table style="margin-left:auto; margin-right:auto; width:70%" >
-        <thead>
+       <div class="large-2 small-2 columns">
+          <button ng-click="next()">Next</button>
+      </div>
+      <div class="large-2 small-2 columns">
+        <a class="button" href="#/addtask" style="background-color:green;">Add Task</a> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 small-2 columns">
+        <form>
+          <label>Filter by:</label>
+          <select ng-model="dropdown" ng-change="sortclick()">
+            <option value="name">Task Name</option>
+            <option value="assignedUserName">Username</option>
+            <option value="dateCreated">Date Created</option>
+            <option value="deadline">Deadline</option>
+          </select>  
+        </form>
+    </div>
+    <div class="large-5 small-2 columns">
+        <form>
+          <label>Order by:</label>
+          <input type="radio" ng-click="orderclick()"name="order" ng-model="ordersort" value="Ascending"><label for="ascending">ascending</label></input>
+          <input type="radio" ng-click="orderclick()"name="order" ng-model="ordersort" value="Descending"><label for="descending">descending</label></input>
+        </form>
+    </div>
+    <div class="large-2 small-2 columns">
+      Page No: {{currpage}}
+    </div>
+  </div> 
+  <br>
+  <div class="row">
+    <div class="large-12 columns">
+       <table style="width:100%;">
+          <thead>
             <tr>
-                 <th>Name</th>
-                <th>ID</th>
-                <th>Assigned User</th>
-                <th></th>
+               <th class="text-center">Name</th>
+               <th class="text-center">ID</th>
+               <th class="text-center">AssignedUser</th>
+               <th class="text-center"></th> 
             </tr>
-        </thead>
-        <tbody ng-repeat="u in tasks">
-            <tr>
-                <td><a href="#detailtask/{{u._id}}">{{u.name}}</a></td>
-                <td>{{u._id}}</td>
-                <td>{{u.assignedUserName}}</th>
-                <td>
-                     <button name="delete" style="background-color:red;" ng-click="deleteUser(u._id)">Delete</button>
-                 </td>
-            </tr>
-        </tbody>
-    </table>
+          </thead>
+          <tbody>
+            <tr ng-repeat="t in currtasks">
+               <th class="text-center" ><a href="#/detailtask/{{t._id}}">{{t.name}}</a></th>
+               <th class="text-center">{{t._id}}</th>
+               <th class="text-center">{{t.assignedUserName}}</th>
+               <th class="text-center"><button ng-click="deletetask(t)" style="background-color:red;">Delete</button></th>
+           </tr>
+          </tbody>
+       </table>
+    </div>
+  </div>
 </div>
