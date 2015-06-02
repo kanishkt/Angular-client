@@ -1,7 +1,7 @@
 Angular-client
 ========
 
-An angular JS Client for a task manager. It intracts with an API ().
+An angular JS Client for a task manager. It intracts with an API (https://github.com/kanishkt/Node-API).
 
 Some Features of the Client App are :- 
 
